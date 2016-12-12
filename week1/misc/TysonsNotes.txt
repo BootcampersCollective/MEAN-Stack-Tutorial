@@ -1,0 +1,83 @@
+
+Because Tyson takes notes that are so much better than what I can do when I'm talking at the same time...
+
+    Setting Up Your Mac
+    - Chrome
+        ○ Install Chrome
+        
+    - Editor (Atom, Visual Studio Code, Sublime, etc..)
+        ○ Install preferred editor
+        
+    - Brew
+        ○ Open chrome and look for Brew.sh
+        ○ Copy what is on the home page:  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        ○ Cut and paste  this in to your terminal so you can download it.
+        
+    - NODE/NPM
+        ○ To install Node then type in the terminal:  brew install node
+            § Type into the terminal: which node
+                □ This will show you where your node is installed.
+    - npm - node package manager - will allow you to run a server on your machine
+        ○ To install npm then type in the terminal: npm install -g http-server
+            § Type into the terminal: which npm 
+                □ This will show you where your npm is installed.
+            
+        
+    - GIT
+        ○ To install GIT then type in the terminal:  brew install GIT
+            § Type into the terminal: which git 
+                □ This will show you where your npm or node is installed.
+    
+        
+    - Shell
+        
+REPOSITORY STRUCTURE / FOLDER STRUCTURE:
+        How to setup your repository for RefactorU
+    
+        Home/Me
+            /RefatcorU
+                /Dec2016DemoCode(lecture notes)
+                /Exercises
+                /Midterm
+                /Final
+    
+GIT:  Git is a version control system (VCS) that is used for software development  and other version control tasks. As distributed revision control system it is aimed at speed, data integrity,  and support for distributed, non-linear workflows. Git lives on your local machine and GitHub is up on the web.
+    - Clone: pulls down files and saves them to your local machine.
+    - Push: pushes files up to your GitHub cloud
+How to save your files:
+    - git add -A. Add all files to your local repository
+    - git status. Shows the files that are in that add file.
+    - git commit -m "comment of what changes have been made" - commits changes to the local repository
+    - git push origin master  pushes local changes to Github
+Messages:
+    Your head is one step ahead of 
+    Someone else made a change up in GITHUB that I don't have yet so I need to do a git pull
+    
+    Someone else made a change up in GITHUB that I don't have yet so I need to do a git pull
+    
+Command Line:
+    ls-               list the files in a directory.
+    cd -            change directory
+    pwd-         print working directory
+    mkdir-      make directory
+    rmdir-      remove directory
+    touch-     modify a file's last modified timestamp, creates the file if it doesn’t exist
+    rm -          remove a file
+    rm -r.       recursive
+    rm -f.       force
+    rm -rf       remove recursive force
+    cd ~          how to get to your home directory.
+    cat -         catenate (look at the contents inside of a file) (ie. )
+    cd ..         goes back one file
+    mv -        move a file or directory to another name/location (ie: move from file to file)
+           *.       
+         history-  shows the history of your 
+    sudo-   super user do, run the command as the root user
+    
+    
+    Handy shortcuts-
+        If you start typing in a directory. If you type in the first 3 letters and then hit tab it will auto complete the rest of the file.
+Visual Studio Code:
+        ○ Download code runner and then you can highlight the portion of the code. 2nd click and then run code.
+            § Shift option f - format document
+Control s - save
