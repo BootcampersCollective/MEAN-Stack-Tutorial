@@ -1,0 +1,14 @@
+Command line interface (CLI)
+
+ls - list the files in a directory
+   ls -l - give a long listing for a directory
+   ls -a - show hidden files
+cd - change directory
+pwd - print working directory
+mkdir - make directory
+rmdir - remove directory
+touch - modify a file's last modified timestamp, creates the file if it doesn't exist
+rm - remove a file
+    rm -r - recursive
+    rm -f - force
+cat - catenate 
