@@ -8,7 +8,14 @@ pwd - print working directory
 mkdir - make directory
 rmdir - remove directory
 touch - modify a file's last modified timestamp, creates the file if it doesn't exist
-rm - remove a file
+rm - remove a file   (ie remove filename)
     rm -r - recursive
     rm -f - force
-cat - catenate 
+cat - catenate (ie. cat filename)
+mv - move a file or directory to another name/location  (ie. move fromFile toFile)
+history - show a list of commands which were recently run 
+
+GIT
+git add -A   - add all files to your local repository
+git commit -m "my comment"   - commits changes to the local repository
+git push origin master       - pushes local changes to github
