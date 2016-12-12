@@ -1,0 +1,59 @@
+Command line interface (CLI)
+These are commands that we type in to the terminal (or shell) directly.
+When we get into remote development, we may not have a GUI (graphical user interface) and 
+will have to do much of our work using the CLI (command line interface)
+
+Commonly used Commands:
+ls                      - list the files in a directory
+   ls -l                    - give a long listing for a directory
+   ls -a                    - show hidden files
+cd {directory}          - change directory
+    cd ..                   - move up one directory level
+    cd ~                    - move to your home directory
+pwd                     - print working directory
+mkdir {directory}       - make directory
+rmdir {directory}       - remove directory
+touch {file}            - modify a file's last modified timestamp, creates the file if it doesn't exist
+rm {directory/file}     - remove a file   (ie remove filename)
+    rm -r                   - recursive
+    rm -f                   - force
+cat {file}        - catenate (ie. cat filename)
+mv {fromFile} {toFile}  - move a file or directory to another name/location  (ie. move fromFile toFile)
+history                 - show a list of commands which were recently run 
+sudo {cmd}              - super user do, run the command as the root user
+
+
+GIT
+Git is a source control system that we will use to back up our files and later use
+to collaborate with each other.
+A repository is a directory that is stored in git and saves history, status, revisions, etc for the directory.
+
+One-time commands (to initialize a repository)
+git init                        - create a local repository (not connected to github)
+git remote add origin {githubURL}     - connect the local repository to the repository specified by the gitURL
+  OR
+git clone {githubURL}           - clone/copy the specified github repository to a local repository in the current directory
+
+git status                      - show the status of local files, the local git repository and the remote github repository
+git add -A                      - add all files to your local repository (must be IN the repository diretory to add all files in that directory and it's sub-directories)
+git commit -m "my comment"      - commits changes to the local repository
+git push origin master          - pushes local changes to github
+git pull origin master          - pull all changes from github to the local repository
+
+A git repository directory will always have a .git directory inside it.  That is where git stores all of its versioning information and github connection info.
+You can remove the .git directory to remove the git repository information while leaving all of the files themselves in place.
+NOTE: Don't create a repository in a repository.  It gets confusing later!
+The Dec2016-DemoCode repository will contain all lecture notes for the course.  
+Please treat this as a read-only repository and only 'pull'  Do not 'push'
+Feel free to create your own repository(s) and play with git - add, commit, push, pull, etc.
+
+
+NPM
+Node Package Manager
+installed along with node 
+
+npm install -g http-server
+- installs the http-server command globally
+
+You can run the 'http-server' command in a directory to have it serve html files
+that exist in that directory.
