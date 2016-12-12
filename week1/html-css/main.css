@@ -1,0 +1,19 @@
+/* a name here defines a style to apply to all html header elements */
+header {
+    color:red;
+}
+
+/* and this applies to all html h1 elements */
+h1 { 
+    color:blue;
+}
+
+/* a name that starts with a . defines a class */
+.big-text {
+    font-size: 50px;
+}
+
+/* and you can get very specific with descriptors like this - apply this style only to em text that is inside a div element */
+div > em {
+    color:peachpuff;
+}
