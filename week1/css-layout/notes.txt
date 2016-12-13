@@ -26,3 +26,5 @@ elements with position:absolute are positioned relative to their closest POSITIO
 
 
 float: the intention of float, is that floating is used for wrapping text around images (or some kind of box). If all you wanted to do was move an element to the right side of the screen, consider using position:absolute instead.
+
+sometimes, an element's content doesn't fit inside its container, if the container has a fixed width. the overflow property tells the browser what to do with content that doesn't fit. 
