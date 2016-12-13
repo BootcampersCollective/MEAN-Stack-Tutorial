@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  /*this means that the border and padding should be included in the width of the element*/
+}
+
+body {
+  background-color: rebeccapurple;
+  /*background-color: rgb(255,255,255);*/
+  /*background-color: #fbfbfb;*/
+}
+
+
+body {
+  background-color: back;
+}
+/*both of the above rulesets are equally specific, because they both target just the body, but the bottom one will take priority because it is listed last*/
+
+
+.box {
+  background-color: aquamarine;
+  height: 200px;
+  width: 300px;
+  border: 10px solid red;
+  padding: 20px;
+  margin: 10px;
+  position: static;
+  /*margin: 10px 20px 30px 40px;*/
+  /*margin-top:10px;*/
+  /*margin-right:20px;*/
+}
+
+.funky-box {
+  position: relative;
+  top: 50px;
+  /*right: 200px;*/
+}
+
+.inline-block {
+  display:inline-block;
+}
+
+.big-margin {
+  margin: 20px;
+}
+
+.fixed-box {
+  position: fixed;
+  /*with position fixed, top and left are relative to the WINDOW*/
+  top: 20px;
+  left: 10px;
+}
+
+.outer {
+  height: 500px;
+  width: 500px;
+  display:inline-block;
+  background-color: green;
+  position:relative;
+}
+.inner {
+  height: 300px;
+  width: 300px;
+  display: inline-block;
+  background-color: orangered;
+  margin: 100px;
+}
+.absolute {
+  position:absolute;
+  height: 50px;
+  width : 100px;
+  top: 10px;
+  right: -120px;
+  background-color: ghostwhite;
+}
+
+.floaty-box {
+  float:left;
+}
+
+.stay-away-from-floats {
+  clear : left;
+  /*with clear:left, this element will not share horizontal space with other elements that have float:left */
+}
+
+p.big-paragraph {
+  height: 200px;
+  overflow:visible;
+}

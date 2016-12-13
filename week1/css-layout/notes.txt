@@ -1,0 +1,30 @@
+styling lingo:
+
+use a CSS SELECTOR to select which elements should receive a set of styles
+a CSS RULE or CSS STYLE is the name of a css style to apply, such as "color" or "font-size"
+a CSS STYLE VALUE is the actual color or number value that the style is set to (i.e. the right side of the colon)
+
+many CSS properties can be expressed in multiple lines, or in one line as a shorthand (e.g. 'border' instead of border-color, border-style, border-width)
+
+important properties:
+
+display: determines how this element takes up space, relative to other elements
+by default, most elements are display:block. elements with display block can have height and width, and they take up their entire row. Elements with display:block will not share horizontal space with other elements
+inline elements (e.g. <strong>, <a>, <em>) neatly wrap their content, and do not have their own height and width. They can easily share space with other elements.
+
+a compromise between inline and block: inline-block. elements with display:inline-block can have their height and width set, but they can also share horizontal space with other elements.
+
+position
+
+all elements have position:static by default, which means they are subject to the default 'page gravity'. They are considered 'unpositioned elements'. If the value of 'position' is anything other than 'static', the element is considered 'positioned'.
+
+elements with position:relative take up space where they would usually with position:static, but can appear to be visually offset using top, left, bottom, or right.
+
+elements with position:fixed do not take up any space at all. The location they appear in is relative to the window, offset by top, left, bottom, and right.
+
+elements with position:absolute are positioned relative to their closest POSITIONED ancestor
+
+
+float: the intention of float, is that floating is used for wrapping text around images (or some kind of box). If all you wanted to do was move an element to the right side of the screen, consider using position:absolute instead.
+
+sometimes, an element's content doesn't fit inside its container, if the container has a fixed width. the overflow property tells the browser what to do with content that doesn't fit. 
