@@ -1,0 +1,37 @@
+.outer {
+  height: 500px;
+  width: 800px;
+  background-color: gray;
+  position:relative;
+
+}
+
+.inner {
+  height:150px;
+  width: 400px;
+  position:absolute;
+  background-color: coral;
+  top: 20px;
+  left: 25%;
+}
+.media-button {
+  height: 100px;
+  width: 100px;
+  background-color:red;
+  position:absolute;
+}
+
+.back {
+  left: 10px;
+  bottom: 10px;
+}
+
+.forward {
+  bottom:10px;
+  right: 10px;
+}
+
+.play {
+  bottom:10px;
+  left: 400px;
+}
