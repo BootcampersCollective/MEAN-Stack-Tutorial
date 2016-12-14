@@ -1,0 +1,24 @@
+Responsive Web Design
+
+our website should respond to the user's device. change the layout to accomodate small screens, different input methods, etc.
+
+keyboard vs touch screen
+network speed, and data limits
+
+
+outdated practice: m.mysite.com
+problems: sites might incorrectly guess what device you were on
+cnn.com/section/some-specific-article -> m.cnn.com
+having 2 sites doubles development effort, doubles chances for bugs.
+
+when building a responsive site, we're mostly concerned with the width of the user's browser.
+
+
+Desktop-first, graceful degradation
+Mobile-first, progressive enhancement
+
+
+relative units:
+em : the size of a capital M in the current font. always relative to the immediate parent's font size, so it can be kind of a mess to use ems a lot.
+
+much better to use rems (root ems)
