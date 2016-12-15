@@ -1,0 +1,17 @@
+CSS centering
+
+
+Horizontally centering elements
+block elements:
+.inner { margin : auto }
+
+inline-block elements:
+.outer {text-align: center}
+.inner {text-align: initial}
+
+
+
+Vertically centering elements
+
+
+in CSS, most styles are not inherited from parents to children. The exception to this is that font-related styles DO get inherited.

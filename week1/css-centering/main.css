@@ -1,0 +1,56 @@
+body {
+  font-size :18px;
+}
+
+.outer {
+  height : 500px;
+  width  : 500px;
+  background-color: cyan;
+}
+
+.inner {
+  height: 250px;
+  width : 250px;
+  background-color: dodgerblue;
+  margin: auto;
+}
+
+
+.outer2 {
+  height : 500px;
+  width  : 500px;
+  background-color: cyan;
+  display: inline-block;
+  text-align: center;
+}
+
+.inner2 {
+  height: 250px;
+  width : 250px;
+  background-color: dodgerblue;
+  display: inline-block;
+  text-align: initial;
+  /*margin: auto; this won't work on inline-block elements!*/
+}
+
+
+.outer3 {
+  position: relative;
+  height : 500px;
+  width  : 500px;
+  background-color: cyan;
+  display: inline-block;
+}
+
+.inner3 {
+  position:absolute;
+  height: 100px;
+  width : 100px;
+  background-color: dodgerblue;
+  display: inline-block;
+  top : 50%;
+  transform: translateY(-50%) translateX(-50%);
+  left : 50%;
+
+  /*margin: auto; this won't work on inline-block elements!*/
+}

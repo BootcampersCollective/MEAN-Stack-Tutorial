@@ -1,0 +1,53 @@
+/*we're doing mobile-first development, using progressive enhancement*/
+
+/*this is our base style. it will apply only to the smallest screens*/
+html {
+  font-size: 12px;
+}
+
+body {
+  background-color: dodgerblue;
+}
+* {}
+p {}
+
+#the-big-div.my-special-class ul > li span.greeting {
+
+}
+.text {
+  font-size: 2rem;
+}
+.outer {
+  font-size: 2rem;
+  height: 500px;
+  max-width: 500px;
+  background-color: green;
+}
+
+.inner {
+  font-size: 2rem;
+  height: 50vw;
+  width: 50vw;
+  /*1 vw is 1% of the width of the viewport*/
+  background-color: purple;
+}
+
+
+
+@media (min-width:768px){
+  body {
+    background-color: ghostwhite;
+  }
+  html {
+    font-size: 14px;
+  }
+}
+
+@media ( min-width:1024px){
+  body {
+    background-color: burlywood;
+  }
+  html {
+    font-size: 18px;
+  }
+}
