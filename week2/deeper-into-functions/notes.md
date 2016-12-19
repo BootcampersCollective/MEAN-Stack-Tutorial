@@ -189,7 +189,7 @@ charlie(10)          // changes charlie's health to 90
 Callbacks are functions that are passed to another function and invoked
 by that function when it is invoked.
 
-Callbacks are sometimes called a 'higher order function' (a function reference that is passed to another function)
+Functions that use callbacks are sometimes called a 'higher order function' (a function that takes a function reference as an argument)
 
 ```javascript
 var delayInMilliseconds = 3000; // javascript date/time is always stored in milliseconds
