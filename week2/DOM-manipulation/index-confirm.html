@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>Default events</title>
+    <!-- this file demonstrates using events to prevent a default action from occuring.
+        we are going to pop up a confirmation dialog on certain events and let the user
+        determine whether they want to continue on or prevent the defalt action.
+        -->
+</head>
+
+<body>
+    <a href="http://xkcd.com">XKCD</a>
+
+    <form method='GET' action='http://xkcd.com'>
+        <input type="text" name='username' placeholder='username'>
+        <input type="text" name='password' placeholder='password'>
+        <button type='submit'>Submit</button>
+    </form>
+
+    <script>
+        // let's confirm that the user really wants to go to the link before redirecting
+        // here we define the function, but we aren't calling anything yet...
+        var areYouSure = function(event) {
+            if (confirm("Are you sure?")) {
+                // continue on as usual
+                return;
+            } else {
+                // stop the event - effectively cancel any action that the event would normally trigger
+                event.preventDefault();
+            }
+        }
+
+        // add an event listener to the link/anchor tag to prompt with the confirmation dialog first
+        document.querySelector('a').addEventListener('click', function(event) {
+            areYouSure(event)
+        })
+
+        // add an event listenter to the button to trigger on a click
+        // document.querySelector('button').addEventListener('click', function(event) {
+        //     areYouSure(event)
+        // })
+        // add an event listener to the form that will trigger when the form is submitted
+        // in this case, this does the exact same thing that the listener above does.
+        // if the form was submitted by hitting Enter in a text field, though, this would
+        // be a preferable way to trigger the confirmation dialog
+        document.querySelector('form').addEventListener('submit', function(event) {
+            areYouSure(event)
+        })
+
+        // add an event listener that logs every key down event that happens on the entire document
+        document.addEventListener('keydown', function(event) {
+            console.log('key down')
+        })
+
+        // prevent the context menu from appearing when you right click on the page
+        document.addEventListener('contextmenu',function(event) {
+            event.preventDefault();
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Event bubbling
+        </title>
+        <!-- this file demonstrates how you would prevent an event from 'bubbling up'
+             to parent events as well.  By default, an event triggered in not only the
+             element in which the event occurs, but in all of it's parent events as well
+            -->
+        <!-- create some styling so that we can see where each div element is on the document -->
+        <!-- the outter, larger square will be blue, the inner one burnt orange -->
+        <style>
+        .outter {
+            height: 400px;
+            width: 400px;
+            background-color : dodgerblue;
+        }
+        .inner {
+            height: 200px;
+            width: 200px;
+            background-color: #CC5500;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- create one outter div square and then put another smaller div square inside -->
+        <div class='outter'>
+            <div class='inner'>
+
+            </div>
+        </div>
+        <script>
+            // add an event listener to the outter div
+            var outter = document.querySelector('.outter');
+            outter.addEventListener('click', function() {
+                console.log("clicked inside the outter div")
+            });
+
+            // add an event listener to the inner div
+            var inner = document.querySelector('.inner');
+            inner.addEventListener('click', function() {
+                // stopPropagation will stop the event from 'bubbling up' to the containing elements
+                event.stopPropagation();
+                console.log("clicked inside the inner div")
+            });
+        </script>
+    </body>
+</html>

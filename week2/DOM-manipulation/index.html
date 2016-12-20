@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id='div-1'>
+        In div-1
+    </div>
+    <div id='div-2'>
+        In div-2
+        <div>
+            In div-2 inside
+        </div>
+    </div>
+    <div id='div-3'>
+        In div-3
+    </div>
+    <div id='div-4'>
+        In div-4
+    </div>
+    <div id='div-5'>
+        In div-5
+    </div>
+
+    <script>
+        var el = document.querySelectorAll('#div-1')[0] // grab a reference to div-1
+
+        el.addEventListener('click', function () {
+            el.innerHTML = "Hello World, I'm in div-1"  // when div-1 is clicked, it will change the text
+        })
+
+        var div6 = document.createElement("div")    // create a new DOM element
+        div6.id = 'div-6'                           // give it an id
+        div6.innerHTML = "I'm div #6"                 // create the text that would be between the element tags
+        div6.style.color = 'crimson'                // you can even add styling attributes to the DOM element 
+
+        // then we need to insert our new element into the DOM
+        body = document.querySelectorAll('body')[0] // start by grabbing the element we want to insert the new element into
+        body.appendChild(div6)                      // and then we can add a new child node onto the end of the list of child nodes for the body
+    </script>
+</body>
+
+</html>
