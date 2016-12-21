@@ -1,0 +1,44 @@
+# Here is an example .bashrc
+# We define a few environment variables
+# and a number of aliases for various commands.
+
+
+export NODE_ENV="development"  # good one to have - we'll talk abou this later
+export ALIASES="$HOME/.bash_aliases"
+export EDITOR="nano"           # a good editor to have as your default text editor
+
+# ALIASES
+
+# unix
+alias c="clear"
+alias l="ls -gphlsX"
+alias la="l -A"
+alias lt="l -t"
+alias lg="l | grep "
+alias ll="la"
+alias grep="grep --color=auto"
+alias untar="tar xvf "
+alias untarbz="tar xvjf "
+alias lpath="env | grep PATH"
+
+# git
+alias commit="git rev-parse HEAD"
+# alias g="gaa; gcm 'QuickCommit'; gpl; gpo"  # this alias uses other aliases
+alias ga="git add"
+alias gb="git branch"
+alias gbls="git branch -a"
+alias gcm="git commit -m"
+alias gcam="git commit -am"
+alias gco="git checkout"
+alias gp="git push"
+alias gpl="git pull"
+alias gpo="git push origin"
+alias gpom="git push origin master"
+alias grmls="git remote -v"
+alias gs="git status"
+
+function g {
+    git add -A; git commit -am "${1}"; git push origin; git status;
+}
+function gclone {
+    git clone git@github.com:"${1}".git
