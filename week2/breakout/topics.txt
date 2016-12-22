@@ -1,0 +1,31 @@
+basic responsive bootstrap website
+CSS display properties
+    display:block for things that should be the full width of their container
+    display:inline for things that do not have height and width (a, b, strong, i, em)
+    display:inline-block for everything else.
+
+practical loops (stop swearing!)
+DOM events
+
+built-in methods
+    arrays: push, pop, join, indexOf, forEach, map, filter, sort
+    strings: split, toUpperCase, toLowerCase, subString
+    numbers: ???
+    objects: ???
+callbacks
+
+//map example
+var words = ['hi', 'bye', 'whatever']
+var capitalWords = words.map(function(element){
+    return element.toUpperCase()
+})
+
+// how much do we care about the thing we just popped off?
+var myStuff = [1,2,3]
+myStuff.pop()
+var lastItem = myStuff.pop()
+
+shift/unshift does the same thing as push/pop, except at the start of the array.
+
+object oriented programming
+    prototypal inheritance
