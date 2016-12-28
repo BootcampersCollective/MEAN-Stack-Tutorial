@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<!--ng-app defines the angular app module that will be referenced in this file-->
+<html ng-app='app'>
+
+<head>
+    <title>Intro to Angular</title>
+    <!--we need to include the angular module itself from a CDN site-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <!--and we need to include our own custom angular module code-->
+    <script src="./main.js"></script>
+</head>
+
+<body>
+    <!--the ng-controller will have scope over this entire div-->
+    <div ng-controller='mainController'>
+        <!--we can use angular variables in styles, as inner html text, as input values...-->
+        <h1 style='background-color: {{color}}' > {{greeting}} {{visitorName}} </h1>
+<!--ng-model 'binds' the value of this input field to the javascript variable named visitorName-->
+<!--I can use visitorName anywhere in the scope of this ng-controller or the controller function in my javascript file-->
+<input type="text" ng-model='visitorName' placeholder='Name'>
+<!--ng-click allows us to bind a function call to an html event (like a button click)-->
+<button ng-click='changeGreeting()'>Change it up, {{visitorName}}</button>
+</div>
+<!--I can have multiple controllers in the same page with scope over different areas of the file-->
+<div ng-controller='secondController'>
+    <h3> this is outside the scope of the controller</h3>
+    <h3> Our greeting: {{greeting}} {{visitorName}}</h3>
+</div>
+</body>
+
+</html>
