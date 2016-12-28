@@ -46,8 +46,8 @@
 or
 
 ```html
-<button ng-click="count = count + 1" ng-init="count=0">Increment Up</button>
-<div>{{ count }}</div>
+<button ng-click="myCtl.incrementCounter()">Increment Up</button>
+<div>{{ myCtl.count }}</div>
 ```
 
 - ng-repeat
