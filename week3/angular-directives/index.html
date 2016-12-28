@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html ng-app='myApp'>
+    <head>
+        <title>Angular Avengers</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+        <script src='./main.js'></script>
+    </head>
+    <body>
+        <div ng-controller='myController as myCtl' ng-init="myCtl.heroes = ['Spandex Man', 'Quailman', 'Chicken Man', 'The Tick']">
+        <!--<div ng-controller='myController as myCtl'>-->
+                <h1>{{myCtl.title}}</h1>
+                <!--let's bind the input.value to myCtl.hero-->
+                <input type='text' placeholder='Avenger Name' ng-model='myCtl.hero'></input>
+                <!--then let's add an event handler, angular style, to handle the click event on this button-->
+                <button ng-click='myCtl.addHero()'>Add Hero</button>
+
+                <ol>
+                    <!--and here we will create a separate list item for each name in the myCtl.heroes array-->
+                    <li ng-repeat='hero in myCtl.heroes'>{{hero}}</li>
+                    <!--takes the array heroes=['Superman', 'Batman', 'Robin']-->
+                    <!--<li>Superman is a hero</li>-->
+                    <!--<li>Batman is a hero</li>-->
+                    <!--<li>Robin is a hero</li>-->
+                </ol>
+        </div>
+    </body>
+</html>
