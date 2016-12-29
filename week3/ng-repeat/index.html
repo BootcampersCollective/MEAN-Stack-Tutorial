@@ -1,0 +1,67 @@
+<!DOCTYPE>
+<html ng-app='worldGeographyApp'>
+
+<head>
+    <title>Angular Repeat</title>
+    <!--we need in bring in the angular module-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <!--and then include our own angular code-->
+    <script src="./main.js"></script>
+</head>
+
+<body ng-controller='worldPlaces as mapCtl'>
+    <!--we can grab a variable value from our angular controller using the 'double mustache' syntax-->
+    <h1>{{mapCtl.title}}</h1>
+
+    <h3>doing an event in ng-repeat using ng-click for each element in the list</h3>
+    <ul>
+        <li ng-repeat='object in mapCtl.countryObjects' ng-click='mapCtl.logMotto($index,object)'>
+            <!--here we are changing the color styling for the list every time we click on an item-->
+            <span style='background-color:blue' ng-show='mapCtl.style'>{{object.name}} has a population of {{object.population}}</span>
+<span style='background-color:red' ng-show='mapCtl.style == false'>{{object.name}} has a population of {{object.population}}</span>
+</li>
+</ul>
+
+<h3>A list of objects</h3>
+<ul>
+    <!--foreach(object in countryObjects) {...}-->
+    <li ng-repeat='object in mapCtl.countryObjects'>
+        {{object.name}} has a population of {{object.population}} and is always saying " {{object.motto}} "
+    </li>
+</ul>
+
+<h3>A list that is sorted</h3>
+<ul>
+    <!--we can sort a list in the javascript and display it here, or later we will learn about filters like sortby-->
+    <li ng-repeat="object in mapCtl.sortedCountries">{{object}}</li>
+</ul>
+
+<h3>First, middle and last</h3>
+<ul>
+    <li ng-repeat='country in mapCtl.countries'>
+        <!--we can use angular ng-repeat properties to customize behavior - first, middle, last, even, odd and index-->
+        <span ng-show='$first'>The first country is {{country}}</span>
+        <span ng-show='$middle'>Then comes {{country}}</span>
+        <span ng-show='$last'>And finally we have {{country}}</span>
+    </li>
+</ul>
+
+<h3>A list with duplicates that we handle with track by $index</h3>
+<ul>
+    <!--this is where we loop through all of the country names defined in the countries array-->
+    <li ng-repeat='country in mapCtl.countriesWithDupes track by $index'> {{$index}} {{country}}</li>
+</ul>
+
+<h3>A list with a built-in property $index</h3>
+<ul>
+    <!--this is where we loop through all of the country names defined in the countries array-->
+    <li ng-repeat='country in mapCtl.countries'> {{$index}} {{country}}</li>
+</ul>
+
+<h3>A list with a named index</h3>
+<ul>
+    <li ng-repeat='(countryIndex,country) in mapCtl.countries'> {{countryIndex}} {{country}}</li>
+</ul>
+</body>
+
+</html>
