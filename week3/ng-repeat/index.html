@@ -46,17 +46,22 @@
     </li>
 </ul>
 
+
+
 <h3>A list with duplicates that we handle with track by $index</h3>
 <ul>
-    <!--this is where we loop through all of the country names defined in the countries array-->
     <li ng-repeat='country in mapCtl.countriesWithDupes track by $index'> {{$index}} {{country}}</li>
 </ul>
+
+
 
 <h3>A list with a built-in property $index</h3>
 <ul>
     <!--this is where we loop through all of the country names defined in the countries array-->
     <li ng-repeat='country in mapCtl.countries'> {{$index}} {{country}}</li>
 </ul>
+
+
 
 <h3>A list with a named index</h3>
 <ul>

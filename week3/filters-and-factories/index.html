@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="SchoolApp">
+
+<head>
+    <title>A Day in the Life of a School Day...</title>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js'></script>
+
+    <script type="text/javascript" src='app.js'></script>
+    <script type="text/javascript" src='studentFactory.js'></script>
+    <script type="text/javascript" src='studentController.js'></script>
+    <script type="text/javascript" src='teacherController.js'></script>
+</head>
+
+<body>
+    <h1>School Roster</h1>
+
+    <section ng-controller="StudentController as students">
+        <h2>{{ students.greeting }}</h2>
+        <h3>from the students of {{ students.school.name }} at {{ students.school.address }}</h3>
+        
+        <!-- NOTE: Can't real time search when using trackby $index -->
+        <input placeholder="Search Names" ng-model="students.nameFilter.name">
+        <!-- NOTE: if you get rid of the property to search on, it will search all properties in the object -->
+        <!-- For example, if we use students instead of students.courses, it will search on all properties in the student object -->
+        <input placeholder="Search Courses" ng-model="students.courses">
+        <p>
+        <label> GPA <select ng-model="students.grade">
+            <option value="all">All</option>
+            <option value="pass">Pass</option>
+            <option value="fail">Fail</option>
+        </select>
+        </label>
+
+        <ul>
+            <li ng-repeat="student in students.data | orderBy:'name' | filter:students.gradeFilter | filter: students.nameFilter">
+                {{ student.name }} started on {{ student.startDate | date:"MM/dd/yyyy" }} and has a GPA of {{ student.gpa }} in
+                <ul>
+                    <li ng-repeat="course in student.courses | filter:students.courses">
+                        {{ course }}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <hr>
+    <section ng-controller="TeacherController as teachers">
+        <h2>{{ teachers.greeting }}</h2>
+        <h3>from the teachers at {{ teachers.school.name }} at {{ teachers.school.address }}</h3>
+        <ul>
+            <li ng-repeat="teacher in teachers.data">
+                {{ teacher.name }} is paid {{ teacher.salary | currency }} and advises:
+                <ul>
+                    <li ng-repeat="student in teachers.getAdvisees(teacher)">
+                        {{ student.name }} has a GPA of {{ student.gpa }}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <hr>
+</body>
+
+</html>
