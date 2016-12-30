@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='exerciseApp'>
+
+<head>
+    <title>Angular Style</title>
+    <link rel='stylesheet' href='./main.css'></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+</head>
+
+<body ng-controller='fitnessController as fitCtl'>
+    <h1>{{fitCtl.greeting}}</h1>
+
+    <ul>
+        <!--loop over each item in the array of exercises...-->
+            <!--add a click event handler to each list item-->
+            <!--and modify the class (and styling) based on a variable-->
+        <li ng-repeat='exercise in fitCtl.exercises' 
+            ng-click='fitCtl.clicked($index)' 
+            ng-class='exercise.class'>
+            {{exercise.name}} burns {{exercise.caloriesBurned}} calories by doing {{exercise.reps}} repetitions {{fitCtl.coolnessThing(exercise.coolness)}}
+        </li>
+    </ul>
+    <!--we add the javascript code tag at the end of the body in order to more-->
+    <!--quickly render the page - but the page contents will not be complete until-->
+    <!--this script source is read.-->
+    <script src="main-ng.js"></script>
+</body>
+
+</html>

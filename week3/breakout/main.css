@@ -1,0 +1,8 @@
+.plain {
+    color:black
+}
+
+.fancy {
+    color:magenta;
+    border: 3px outset rgba(20,200,50,.7)
+}
