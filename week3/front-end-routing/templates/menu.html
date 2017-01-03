@@ -1,0 +1,4 @@
+<div ng-repeat='coffee in cCtl.coffees'>
+    <!--{{cCtl.coffees[$index].name}}  {{cCtrl.coffees[$index].price | currency}}  is another way of saying the following: -->
+    {{coffee.name}} {{coffee.price | currency}}
+</div>

@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html ng-app='CoffeeApp'>
+
+<head>
+    <title>
+        Routing
+    </title>
+    <!--using angular 1.6.1 causes this to fail-->
+    <!--but either 1.5.8 or 1.6.1 angular-route works-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+    <!--we need to also include all of our own javascript code-->
+    <script src="./app.js"></script>
+    <script src="./controller.js"></script>
+    <script src="./origins.js"></script>
+    <script src="./router.js"></script>
+
+</head>
+
+<body ng-controller='CoffeeControl as cCtl'>
+    <h1>
+        RefactorU Coffee 4U
+    </h1>
+    <!--this is a quick and dirty navigation bar with links to our routes-->
+    <ul>
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/menu">Menu</a></li>
+        <li><a href="#/origin">Origin</a></li>
+    </ul>
+    
+    <ng-view>
+        <!--this is going to be where our template code shows up-->
+    </ng-view>
+
+</body>
+<br>
+<footer>
+    Copyright 2017
+</footer>
+
+</html>
