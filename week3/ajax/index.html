@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app='pokeApp'>
+    <head>
+        <title>
+            AJAX
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="./main.js"></script>
+    </head>
+    <body ng-controller='pokeController as pCtrl'>
+        <!--throw up a title for the page from our pokemon controller-->
+        <h1>{{pCtrl.title}}</h1>
+
+        <!--create a text box and button to start a search for a named pokemon-->
+        <div>
+            <form>
+                <!-- bind the text entered to pokename so that we can use it in the javascript-->
+                <input type="text" ng-model='pCtrl.pokename'> 
+                <!--when the button is clicked, do another api call to get details on the named pokemon-->
+                <button ng-click='pCtrl.searchPoke()'>Submit</button>
+            </form>
+        </div>
+        <!--display some detail information about the pokemon that we searched for-->
+        <div>
+            <h3>Pokemon: {{pCtrl.pokename}}</h3>
+            <h5>Abilities:</h5>
+            <div ng-repeat='abilityItem in pCtrl.pokemon.abilities'>
+                {{abilityItem.ability.name}}
+            </div>
+            <h5>Moves:</h5>
+            <div ng-repeat='moveItem in pCtrl.pokemon.moves'>
+                {{moveItem.move.name}}
+            </div>
+
+        </div>
+        <!--display a list of all the pokemon that we got from our first api call-->
+        <div>
+            <h3>Pokedex</h3>
+            <ul>
+                <li ng-repeat='pokemon in pCtrl.pokedex'>
+                    {{pokemon.pokemon_species.name}}
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
