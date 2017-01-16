@@ -1,0 +1,2 @@
+call, apply, bind: 3 built-in functions in javascript that manipulate this
+
