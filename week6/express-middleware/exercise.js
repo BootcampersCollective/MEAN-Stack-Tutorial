@@ -9,18 +9,18 @@ app.get('*', function(request, response, next) {
 
 app.get('/', function(request, response, next) {
     console.log('handle the root route')
-    res.send('handled!');
+    response.send('handled!');
 })
 
-app.get('/home', function(request, reponse, next) {
+app.get('/home', function(request, response, next) {
     console.log('handle the home route')
-    res.send('home handled!');
+    response.send('home handled!');
     next();  // this will never run
 })
 
 // we will never get here because the previous middleware function 
 // sent a response to this request.
-app.get('/home', function(request, reponse, next) {
+app.get('/home', function(request, response) {
     console.log('handle the home route')
-    res.send('home handled!');
+    response.send('home handled!');
 })
