@@ -1,33 +1,46 @@
+// server.js
+
 var express = require('express'),
-    bodyParser = require('body-parser'),
-    morgan = require('morgan');
+	bodyParser = require('body-parser'),
+	app = express(),
+	port = process.env.PORT||8080;
 
-var app = express();
+// create static route to public files
+app.use(express.static(__dirname + '/public'));
 
-// the same as
-// var routes = require('./controllers/index.js')
-// routes(app)
+// log http requests - instead of declaring a logger function, we call it directly
+app.use(require('morgan')('dev'));
 
-// log out basic development level logging information
-app.use(morgan('dev'));
+// body-parse all post requests using horizontally mounted body-parser middleware
+app.post('*', bodyParser.json(), bodyParser.urlencoded({extended:true}));
 
-app.post('*', bodyParser.json(), bodyParser.urlencoded( {extended:true} ))
+// Let's make Middleware so we can see our req object info!
+app.use(function(req, res, next){
 
-app.use(function(req,res,next){
-    var requestInfo ={
-        method: req.method,
-        path: req.path,
-        query: req.query,
-        params: req.param,
-        body: req.body
-    }
-    console.log(requestInfo)
-    next();
-})
+	var requestInfo = {
+		method  : req.method, // What kind of request is this? GET, PUT, POST or DELETE
+		path    : req.path,   // URL the request is going to
+		query   : req.query,  // Info from GET requests
+		body    : req.body,   // Info from POST requests
+		params  : req.params, // Info from dynamic / paramaterized URLs
 
-require('./controllers/index.js')(app)
+		// ip       : req.ip,       // IP address
+		// protocol : req.protocol, // HTTP / HTTPS
+		// headers  : req.headers,  // Headers from request
+		// hostname : req.hostname  // Hostname 
+	};
 
-var PORT = process.env.PORT || 8080
+	// console.log(req);
+	console.log(requestInfo);
+	next(); // Let the middleware chain continue
+
+});
+
+// Require our routes (will look for index.js by default)
+// do this after the vertically mounted middleware above.
+require('./routes')(app);
+
+var PORT = process.env.PORT || 8080;
 
 // start the server listening
 app.listen(PORT, function (err) {

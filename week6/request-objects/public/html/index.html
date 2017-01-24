@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html ng-app=''>
-    <head>
-        <title>Library Time
-        </title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
-    </head>
-    <body ng-controller=''>
-        <h1>Welcome to our Library!</h1>
-        <!-- build a form to get books -->
-        <form method="GET" action="/books">
-            <input value='Get Books' type="submit">
-        </form>
-    </body>
+<html ng-app="App">
+<head>
+	<title> Request books! </title>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+	<!--  module needs to come first -->
+	<script type="text/javascript" src="/js/app.module.js"></script>
+	<script type="text/javascript" src="/js/app.controller.homeCtrl.js"></script>
+
+</head>
+<body ng-controller="homeController as hCtrl">
+
+	<h1>Library Time</h1>
+	<form method="GET" action="/library/books" >
+		<input value="Get Books" type="submit">
+	</form>
+	<form ng-submit="hCtrl.createBook()">
+		<input ng-model="hCtrl.newBook.title" placeholder="Title">
+		<input ng-model="hCtrl.newBook.author" placeholder="Author">
+		<input ng-model="hCtrl.newBook.genre" placeholder="Genre">
+		<input type="submit">
+	</form>
+
+</body>
 </html>
