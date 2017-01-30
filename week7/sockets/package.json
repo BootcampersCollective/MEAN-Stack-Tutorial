@@ -1,0 +1,17 @@
+{
+  "name": "mysocket",
+  "version": "1.0.0",
+  "description": "## Why sockets? Bidirectional communication between the client and server - the server can initiate a message after socket is established",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "morgan": "^1.7.0",
+    "socket.io": "^1.7.2"
+  }
+}
