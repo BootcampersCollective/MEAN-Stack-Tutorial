@@ -6,9 +6,9 @@ var sockIt2Me = io();
 // socket.emit()
 
 // every two seconds after loading the page, we will send a random number to the server
-// setInterval(function() {
-//     sockIt2Me.emit('newNumber', Math.random());
-// }, 2000);
+setInterval(function() {
+    sockIt2Me.emit('newNumber', Math.random());
+}, 2000);
 
 // when the server sends a number, we will append it to the body of our index.html page
 sockIt2Me.on('number', function(data){
