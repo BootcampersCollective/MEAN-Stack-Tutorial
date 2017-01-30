@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.14.1",
     "morgan": "^1.7.0",
+    "node-tweet-stream": "^2.0.1",
     "socket.io": "^1.7.2"
   }
 }
