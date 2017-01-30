@@ -1,0 +1,7 @@
+Cookies and Sessions
+
+cookies are short strings of text that are stored in your browser, as instructed by a server.
+cookies are specific to the website that set them. E.g. there's no way for facebook.com to access your twitter.com cookies.
+
+
+sessions are NOT a specific technology. sessions are an experience, where you log in once, and the website remembers who you are between requests, until you log out. 
