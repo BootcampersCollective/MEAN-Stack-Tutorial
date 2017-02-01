@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='aliensApp'>
+    <head>
+        <!--script tags are URLs, not file paths, so no . or ..-->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js'></script>
+        <script src='/js/aliensController.js'></script>
+        <title>
+            Aliens!
+        </title>
+    </head>
+    <body ng-controller='aliensController as aCtrl'>
+        <h1>We have arrived!</h1>
+        <h3>{{aCtrl.title}}</h3>
+
+        <h3>Our friendly aliens</h3>
+        <ol>
+            <li ng-repeat='alien in aCtrl.aliens'>
+                <h4>{{alien.name}}</h4>
+                <!--break tags are self-closing, so we can do it all in one tag -->
+                Color: {{alien.color}} 
+                <br/>
+                # Eyes: {{alien.numEyes}} 
+                <br/>
+                # Arms: {{alien.numArms}}
+                <br/>
+                From the planet {{alien.planetOfOrigin}} 
+                <br/>
+                Powers: {{alien.powers}} 
+            </li>
+        </ol>
+    </body>
+</html>
