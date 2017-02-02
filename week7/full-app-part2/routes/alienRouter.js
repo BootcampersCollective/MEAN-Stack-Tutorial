@@ -1,5 +1,4 @@
 var aliensStorage = require('../models/aliensModel.js');
-var bodyParser = require('body-parser')
 
 module.exports = function (app) {
     // make sure we are loading this router
@@ -20,6 +19,22 @@ module.exports = function (app) {
                 res.status(500).json(err)
             } else {
                 res.send(aliensArray);
+            }
+        })
+    }),
+
+    app.post('/alien', function(req, res) {
+        console.log("saving", req.body)
+        // take our req.body object and use it to create a aliensStorage model
+        var newAlien = new aliensStorage(req.body);
+        // then we can use the save() method on the model to save it to Mongo
+        newAlien.save(function(err){
+            if (err) {
+                console.log("Database insert() error:", err);
+                // send back a server error
+                res.status(500).json(err)
+            } else {
+                res.send(req.body);
             }
         })
     })

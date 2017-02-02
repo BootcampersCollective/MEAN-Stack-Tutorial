@@ -14,6 +14,19 @@ mongoose.connect('mongodb://localhost/aliensDB', function(err) {
 // serve up any file in the ./public/html directory
 app.use(express.static('./public'))
 
+app.use(function(req, res, next){   
+    console.log("Before:",req.body);
+    next();
+})
+
+var bodyParser = require('body-parser')
+app.use(bodyParser.json(), bodyParser.urlencoded({extended:true}))
+
+app.use(function(req, res, next){   
+    console.log("After:",req.body);
+    next();
+})
+
 // Routes
 var Routes = require('./routes/alienRouter.js')
 Routes(app)

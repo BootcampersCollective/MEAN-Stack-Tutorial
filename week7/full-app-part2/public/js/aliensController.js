@@ -17,19 +17,43 @@ function aliensFunction(aliensFactory) {
     aCtrl.title = 'Take us to your leader.'
 
     // get our list of aliens from the aliens factory
-    aCtrl.aliens = aliensFactory.getAliens();
+    var getPromise = aliensFactory.getAliens();
+    getPromise.then(
+        // promise.then(successFunction, errorFunction)
+        // success function is the first parameter
+        function (res) {
+            aCtrl.aliens = res.data;
+        },
+        // failure function is the second parameter of our 'then' promise function
+        function (err) {
+            console.log("getAllAliens error:", err);
+            aCtrl.aliens = [];
+        })
 
     // submit a new alien to be added to the list of aliens
     // we pass the event from which this function is called, but we aren't 
     // really doing anything with the event.
-    aCtrl.submit = function(event) {
+    aCtrl.submit = function (event) {
         // take a look at what's in the event
         // console.log(event)
         // var newAlien = {}
         // var newAlien = aCtrl.alien
-        aliensFactory.addAlien(aCtrl.alien);
-        // after adding, we set the alien to be an empty object to clear the input fields
-        // in our input form
-        aCtrl.alien = {}
+        var postPromise = aliensFactory.addAlien(aCtrl.alien);
+        postPromise.then(
+            function (data) {
+                console.log('createAlien worked')
+                // we don't really need anything back from the server other than to 
+                // know if our request succeeded or failed.  So here we'll just add
+                // the alien that we sent to our list of aliens
+                aCtrl.aliens.push(aCtrl.alien)
+                // after adding, we set the alien to be an empty object to clear the input fields
+                // in our input form
+                aCtrl.alien = {}
+            },
+            function (err) {
+                console.log('createAliens failed:', err)
+            }
+        )
+
     }
 }
