@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app='aliensApp'>
+
+<head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js'></script>
+    <!--script tags are URLs, not file paths, so no . or ..-->
+    <!--include the Angular app, then all of its factories and controllers - order is important-->
+    <script src='/js/aliensApp.js'></script>
+    <script src='/js/aliensFactory.js'></script>
+    <script src='/js/aliensController.js'></script>
+    <title>
+        Aliens!
+    </title>
+</head>
+
+<body ng-controller='aliensController as aCtrl'>
+    <h1>We have arrived!</h1>
+    <!--a quick test to make sure our Angular controller is connected-->
+    <h3>{{aCtrl.title}}</h3>
+    <!--Form to add a new alien to our list of aliens-->
+    <form ng-submit='aCtrl.submit($event)'>
+        <input type="text" placeholder='Name' ng-model='aCtrl.alien.name'>
+        <input type="text" placeholder='Color' ng-model='aCtrl.alien.color'>
+        <input type="number" placeholder='#Eyes' ng-model='aCtrl.alien.numEyes'>
+        <input type="number" placeholder='#Arms' ng-model='aCtrl.alien.numArms'>
+        <input type="text" placeholder='Planet' ng-model='aCtrl.alien.planetOfOrigin'>
+        <!--TODO - make power array inputs add new text boxes as we go along http://bootsnipp.com/snippets/featured/dynamic-form-fields-add-amp-remove-->
+        <input type="text" placeholder='Powers' ng-list=',' ng-trim='true' ng-model='aCtrl.alien.powers'>
+        <button type='submit'>Create Alien</button>
+    </form>
+
+    <h3>Our friendly aliens</h3>
+    <!--use ng-repeat to create an ordered list of our aliens-->
+    <ol>
+        <!--ng-repeat over the list ITEMS (li), not over the LIST (ol)-->
+        <li ng-repeat='alien in aCtrl.aliens'>
+            <h4>{{alien.name}}</h4>
+            <!--break tags are self-closing, so we can do it all in one tag -->
+            Color: {{alien.color}}
+            <br/> # Eyes: {{alien.numEyes}}
+            <br/> # Arms: {{alien.numArms}}
+            <br/> From the planet {{alien.planetOfOrigin}}
+            <br/> Powers:
+            <ul>
+                <!--use a nested ng-repeat to iterator over the list of powers-->
+                <li ng-repeat='power in alien.powers'>
+                    {{power}}
+                </li>
+            </ul>
+        </li>
+    </ol>
+</body>
+
+</html>
