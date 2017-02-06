@@ -1,0 +1,42 @@
+Web Scraping
+
+clients
+    browsers
+    desktop/mobile apps
+    other servers
+    command-line utilities
+    IoT devices
+
+webscraping is the act of requesting HTML from a website for some purpose other than displaying it in a browser.
+
+We might scrape data from a website to access their data when they don't have a public API.
+
+2 ways to scrape a website:
+
+Simplest way: request html, parse HTML as a string, do whatever you want with it. 
+
+
+better way: browser automation
+traditionally done with Selenium. Selenium can drive other browsers, such as chrome or firefox.
+a more friendly, modern alternative is nightmare.js.
+
+installing nightmare on DO:
+1: sudo apt-get update
+2: npm install -g electron-prebuilt
+3: get additional linux dependencies for electron, as instructed at https://github.com/electron/electron/blob/master/docs/development/build-instructions-linux.md
+4: sudo apt-get install xvfb
+5: npm install nightmare
+6: xvfb-run node nightmare-scraper.js
+
+
+ETHICAL ISSUES
+some websites (e.g. craigslist) forbid scraping in their terms of service. In some cases, it may be illegal.
+If a web server is not particularly robust, scraping it too quickly may cause the site to crash. This is called a Denial of Service (DoS).
+
+
+
+
+
+
+
+

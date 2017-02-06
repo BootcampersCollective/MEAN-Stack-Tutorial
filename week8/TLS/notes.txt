@@ -1,0 +1,62 @@
+HTTPS, TLS, SSL
+
+SSL (Secure Socket Layer)
+developed by netscape in 1995. After 3.0, it was rebranded as TLS (Transport Layer Security)
+currently, most websites use version 1.2 of TLS. Version 1.3 is on its way. 
+SSL is not currently used anywhere on the internet. Some people still refer to SSL when talking about TLS.
+
+what is a protocol? a standardized method of communication. want to know more? google "OSI model"
+
+physical layer is the lowest protocol. responsible for converting electrical signals into 1's and 0's.
+skipping a few levels: the IP protocol describes network addressing. 
+
+the TCP protocol describes how data can be transmitted relaibly, in order, with no errors. (an alternative, used by multiplayer games, is UDP. UDP has no error checking, but it's faster.)
+
+the TLS protocol works on top of TCP, to secure any protocol that runs on top of TCP
+
+the HTTP protocol describes how meaningful requests and responses can describe high-level application data.
+
+http -> https
+ftp -> ftps
+smtp(simple mail transfer protocol) -> smtps
+
+Why do we use TLS? What are guaranteed that the server is who they say they are, and that their certificate has not been modified. 
+TLS guarantees that our communication with the server is encrypted, and cannot be intercepted.
+
+
+how is a TLS connection initiated?
+TLS handshake involves the client and server negotiating which version of TLS to use, and what encryption methods to use.
+
+
+acquiring a TLS certificate.
+1. Buy a domain. 
+2. Find a CA (certificate authority), and prove to them that you own the domain you say you do.
+3. The CA gives you a certificate, which is cryptographically signed, so that any client can determine that the cert was issued by the CA, and that it was not modified. 
+
+serving https traffic
+
+clients connect on port 443
+client and server perform TLS handshake, negotiate which encryption methods to use. 
+server sends down their certificate, which contains their public encryption key. 
+client confirms that the certificate was issued by a CA the client trusts, and that it was not tampered with. 
+client sends a random message, encrypted with the public key.
+server will echo back the decrypted random message, proving that they were able to decrypt it. 
+
+
+"Powerful features"
+microphone, camera, geolocation, etc, are POWERFUL FEATURES, and can only be used over HTTPS.
+
+
+DNS records
+A record: most popular. Points a URL to an IP address. 
+CNAME record: points a URL to another URL. commonly used for setting up subdomains, e.g. blog.whatever.com, www.whatever.com, store.whatever.com.
+A 
+
+find certbot documentation at certbot.eff.org
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    .container
+        .space
+        .space
+        h1.text-center Mix Some Ipsum
+        .space
+        .space
+        form#ipsum-form
+            .row
+                .col-sm-4
+                    span.cc-label Bacon
+                .col-sm-6
+                    input(type="range" min="0" max="10" name="baconIpsum")
+            .space
+            .row
+                .col-sm-4
+                    span.cc-label Cupcake
+                .col-sm-6
+                    input(type="range" min="0" max="10" name="cupcakeIpsum")
+            .space
+            .row
+                .col-sm-4
+                    span.cc-label Cheese
+                .col-sm-6
+                    input(type="range" min="0" max="10" name="cheeseIpsum")
+            .space
+            .row
+                .col-sm-4
+                    span.cc-label Hipster
+                .col-sm-6
+                    input(type="range" min="0" max="10" name="hipsterIpsum")
+            .space
+            .text-center: button#mix-btn.btn.btn-default.btn-lg(type="submit") Mix
+        .space
+        #ipsum-output.text-center
+        .space
+        .space
+block scripts
+    script(src="/javascripts/mixSome.js")
