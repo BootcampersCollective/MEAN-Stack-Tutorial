@@ -7,6 +7,7 @@
         <script src='./appController.js'></script>
     </head>
     <body ng-controller='pokemonController as pCtl'>
+        
         <h1>{{pCtl.heading}}</h1>
 
         <!--section where we can select a pokemon to pre-populate our job application form-->
@@ -18,9 +19,9 @@
 
         <!--section for a pokemon job application form-->
         <h3>Poke Job Application</h3>
-        <form>
+        <form ng-show='pCtl.selected'>
             <h5>{{pCtl.pokemon.name}}</h5>
-            <img ng-src='{{pCtl.pokemon.sprite}}' alt="">
+            <img ng-src='{{pCtl.pokemon.sprite}}'>
             <br>
             <label>Weight</label>
             <input type="text" ng-model='pCtl.pokemon.weight'>
@@ -28,7 +29,6 @@
             <label>Height</label>
             <input type="text" ng-model='pCtl.pokemon.height'>
             <br>
-
             <label>Experience</label>
             <input type="text" ng-model='pCtl.pokemon.experience'>
             <br>

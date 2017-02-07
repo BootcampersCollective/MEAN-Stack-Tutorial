@@ -45,8 +45,8 @@ module.exports = function (app) {
                     experience: myBody.base_experience
                 };
                 // create a database document based on our poke object
-                var pokeGuy = new PokeApplicant(poke);
-                pokeGuy.save(function (err) {
+                var pokeDB = new PokeApplicant(poke);
+                pokeDB.save(function (err) {
                     if (err) {
                         console.log("Database save() error:", err);
                     } else {
@@ -57,6 +57,41 @@ module.exports = function (app) {
             });
         }
     });
+
+    // PUT:/pokemon
+    app.put('/pokemon', function(req, res) {
+        var pokemon = req.body;     // updated html input pokemon
+        console.log("PUT ", pokemon);
+        PokeApplicant.findOneAndUpdate({name:pokemon.name}, 
+            pokemon, {upsert:true}, 
+            function(err, doc){
+                console.log("PUT2 ", doc)
+                if (err) {
+                    return res.send(500, { error: err });
+                } else {
+                    return res.send("succesfully saved");
+                }
+            });
+        // PokeApplicant.find({name:pokemon.name}).then(
+        //     function foundIt(data) {
+        //         var pokeDB = data;  // our existing database pokemon
+        //         console.log("PUT2 ", pokeDB);
+        //         pokeDB.upsert(pokemon, function(err) {
+        //             if (err) {
+        //                 console.log("Failed to update")
+        //                 console.log("PUT3 ", pokeDB);
+        //                 res.status(500).send("Couldn't update")
+        //             } else {
+        //                 console.log("Update succeeded")
+        //                 res.send("Update successful")
+        //             }
+        //         })
+        //     }, 
+        //     function failure(data) {
+        //         res.status(500).send("Couldn't find him")
+        //     }
+        // )
+    })
 
 
 }
