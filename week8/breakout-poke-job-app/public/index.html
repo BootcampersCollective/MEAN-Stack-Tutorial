@@ -8,8 +8,47 @@
     </head>
     <body ng-controller='pokemonController as pCtl'>
         <h1>{{pCtl.heading}}</h1>
-        <ul>
-            <li ng-repeat='poke in pCtl.pokemon'></li>
-        </ul>
+
+        <!--section where we can select a pokemon to pre-populate our job application form-->
+        <h3>Pokemon Selector</h3>
+        <form ng-submit='pCtl.getPokemon()'>
+            <input type="text" placeholder="Pokemon Name" ng-model='pCtl.pokeName'>
+            <button>Get 'em</button>
+        </form>
+
+        <!--section for a pokemon job application form-->
+        <h3>Poke Job Application</h3>
+        <form>
+            <h5>{{pCtl.pokemon.name}}</h5>
+            <img ng-src='{{pCtl.pokemon.sprite}}' alt="">
+            <br>
+            <label>Weight</label>
+            <input type="text" ng-model='pCtl.pokemon.weight'>
+            <br>
+            <label>Height</label>
+            <input type="text" ng-model='pCtl.pokemon.height'>
+            <br>
+
+            <label>Experience</label>
+            <input type="text" ng-model='pCtl.pokemon.experience'>
+            <br>
+            <!--these last two fields are not prepopulated and we will enter them before submitting the form-->
+            
+            <label>Salary</label>
+            <input type="text" placeholder="salary" ng-model='pCtl.pokemon.salary'>
+            <br>
+            <label>Job Title</label>
+            <input type="text" placeholder="job title" ng-model='pCtl.pokemon.jobTitle'>
+            <button ng-click='pCtl.apply()'>Submit Application</button>
+        </form>
+
+        <!--the list of pokemon from which we can select one to pre-populate our job application form-->
+        <h3>Pokemon Pool</h3>
+        <ol>
+            <li ng-repeat='poke in pCtl.pokemonArray'>
+                {{poke.name}}
+            </li>
+
+        </ol>
     </body>
 </html>

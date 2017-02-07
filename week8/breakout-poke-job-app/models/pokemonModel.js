@@ -8,6 +8,6 @@ var pokeSchema = mongoose.Schema({
     experienece: Number,
     salary : Number,
     jobTitle: String
-})
+});
 
 module.exports = mongoose.model('PokeApplicant', pokeSchema)
