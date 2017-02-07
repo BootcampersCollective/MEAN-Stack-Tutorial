@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app='pokemonApp'>
+    <head>
+        <title>Poke Job App</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src='./appModule.js'></script>
+        <script src='./appController.js'></script>
+    </head>
+    <body ng-controller='pokemonController as pCtl'>
+        <h1>{{pCtl.heading}}</h1>
+        <ul>
+            <li ng-repeat='poke in pCtl.pokemon'></li>
+        </ul>
+    </body>
+</html>
