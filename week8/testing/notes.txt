@@ -1,0 +1,86 @@
+TESTING
+
+
+WHO writes tests?
+
+    traditionally: separate team of testers test all the code.
+    agile shops, TDD shops: Developers test their own code
+
+
+WHY write tests?
+    testing helps us catch bugs in development, before they get to production, where they are cheaper to fix
+    testing lets us confidently refactor old code, and know immediately if the refactor broke anything that was previously working. 
+    testing enable continuous delivery. developers can push to master, which triggers automatic tests that determine if the push can be deployed to production automatically.
+    prevents bugs from reoccurring 
+
+
+
+What different types of tests are there?
+
+Unit testing: testing the smallest testable components in your application
+    typically automated, can be done manually
+    when automated, typically runs very fast
+    tests inputs/outputs of a single function
+    typically written as a 'clear box test', meaning the person writing the test does so with knowledge of the source code. 
+
+    typical unit testing frameworks in javascript:
+	jasmine
+	mocha
+	chai
+
+two different types of assertions about a function you're testing:
+    optimistic test cases: if this function is given good inputs, does it produce the right output?
+    pessimistic test cases: if this function is given bad/nonsense inputs, does it fail gracefully?
+	malicious test cases: if someone is trying to exploit your application, does the function fail gracefully? 	
+	
+	
+
+Functional testing/Feature testing
+
+commonly phrased as user stories: AS A logged in user, I WANT TO see my profile picture, SO THAT i know when I'm at my dashboard.
+
+tests whole features of the application from the user's perspective.
+written as "black box tests", meaning the test is written without knowledge of the underlying code, only with knowledge of the desired functionality. 
+
+typically automated using tools like selenium
+
+
+HOW MANY tests should we write? 
+
+TDD (test driven development): test everything. 
+IMO: be more choose about which features to test
+    it takes time to write tests
+    tests themselves can have bugs
+    each test raises raises the possibility of a false positive 
+    each test increases the length of your test results
+
+make sure you get more value from your tests than it costs you to create them
+
+Don't bother testing CSS for your admin dashboard. it probably won't break, and if it does, it probably won't matter.
+
+DO bother testing your signup/login features. If these features don't work, your app is worthless. 
+
+
+WHEN do you write tests?
+    basic: write tests AFTER you complete a feature.
+    TDD: write tests BEFORE you start a feature. 
+    reactive: after a bug appears in production. If you wait this long before writing a test, you've already missed much of the benefit of testing.
+
+
+
+WHEN do you RUN tests?
+    basic: run them manually after making major changes, and before you deploy your application
+    continuous integration: tests are run automatically after each push to master
+
+
+
+
+
+
+
+
+
+
+
+
+
