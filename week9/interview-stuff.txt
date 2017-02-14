@@ -1,0 +1,99 @@
+polymorphism - when a child class inherits from a parent class, the child will have methods with the same names, but they might be definied differently. E.g., you might have a parent class 'rectangle', with a child class 'square'. They would both have a method called "calculateArea", but the definition of this method would be different for the parent and the child. 
+
+
+NoSQL - not only sql.
+    NoSQL databases : mongo, couchDB, rethinkDB, cassandra, mariaDB, 
+
+MVC - Model, View, Controller
+    common way to modularize your code
+    model: the data
+    view: how you present the data
+    controller: everything between the view and the model
+sometimes people say MV*
+MVVM - Model, View, ViewModel
+
+data-binding - keeping 2 values in sync, e.g. between data in the model, and the presentation of the data in the view.
+
+basic SQL query: 
+"FIND * FROM USERS WHERE AGE > 20"
+
+var outer = function(){
+    var outerVar = 5
+    var inner = function(){
+        var innerVar = 10
+        console.log(outerVar)//this works fine
+    }
+    console.log(innerVar) // innerVar is not accessible in this scope. this throws an error!
+}
+
+
+var counterConstructor = function(){
+    var number = 0
+    var counter = function(){
+        return number++
+    }
+    return counter
+}
+
+var myCounter = counterConstructor()
+var yourCounter = counterConstructor()
+myCounter()
+myCounter()
+yourCounter()
+myCounter()
+yourCounter()
+yourCounter()
+
+closure is an exception to garbage collection. 
+Normally, variables are deleted when there is no way to refer to them, UNLESS, there is a function that depends on that value.
+
+
+=-=-=-=-=-=-=-=-=-=
+
+function hoisting
+
+foo() // this throws an error
+bar() // this is just fine
+var foo = function(){
+    console.log('foo')
+}
+
+foo() // we can only call foo after it's defined
+function bar(){
+    console.log('bar')
+}
+
+
+var stuff = function(){
+    var things = 10
+    return things
+}
+var value = stuff() // we no longer have access to the name 'things', so it gets garbage collected
+
+
+
+
+var things2 = 10
+var stuff2 = function(){
+    var things2 = 15
+
+}
+stuff2()
+console.log(things2) // 15
+
+
+// this is an example the module pattern in javascript
+var fullname = (function(){
+    var firstName = 'Jeph' // private variable
+    var lastName = 'Robertsonson' // private variable
+    var whatsMyFullName = function(){ // public method
+        return firstName + ' ' + lastName
+    }
+    return whatsMyFullName
+})()
+
+fullname() // returns 'Jeph Robertsonson'. fullname has closure over firstName and lastName
+console.log(firstName) // error
+console.log(lastName) // error
+
+
